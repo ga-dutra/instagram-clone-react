@@ -187,9 +187,8 @@ body {
 }
 
 .post .conteudo img {
-  height: 612px;
+  max-height: 614px;
   width: 100%;
-  max-width: 614px;
   max-width: 614px;
   object-fit: cover;
 }
