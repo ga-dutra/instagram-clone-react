@@ -186,6 +186,10 @@ body {
   cursor: pointer;
 }
 
+.post .conteudo {
+  position: relative;
+}
+
 .post .conteudo img {
   max-height: 614px;
   width: 100%;
@@ -202,6 +206,52 @@ body {
 
 .post .fundo .acoes div:first-child ion-icon {
   margin-right: 6px;
+}
+
+@keyframes like {
+  from {
+    fill: white;
+  }
+  to {
+    fill: rgb(187, 42, 42);
+  }
+}
+
+.post .fundo .acoes #heart-liked {
+  fill: rgb(187, 42, 42);
+  animation-name: like;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in-out;
+}
+
+.post .fundo .acoes #heart-disliked {
+  animation-name: dislike;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes dislike {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.post #heart-central-post {
+  position: absolute;
+  top: calc(307px - (120px / 2));
+  left: calc(307px - (120px / 2));
+  fill: #ffffff;
+  z-index: 2;
+  font-size: 120px;
+  animation-name: dislike;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in-out;
+  opacity: 0;
+  cursor: initial;
+  pointer-events: none;
 }
 
 .post .fundo .curtidas {
@@ -319,6 +369,10 @@ body {
 .logo-mobile,
 .instagram-mobile {
   display: none !important;
+}
+
+#escondido {
+  display: none;
 }
 
 @media (max-width: 935px) {

@@ -64,4 +64,9 @@
     position: relative;
     top: 4px;
   }
+
+  .post #heart-central-post {
+    left: calc(100vw / 2 - (120px / 2));
+    top: calc(100vw / 2 - (120px / 2));
+  }
 }
