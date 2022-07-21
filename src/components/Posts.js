@@ -1,6 +1,14 @@
 import React from "react";
 
-function ConteudoPost(props) {
+function ConteudoPost({
+  posterImg,
+  poster,
+  postImg,
+  likerImg,
+  liker,
+  likes,
+  funçãoLike,
+}) {
   const [hearticon, setHeartIcon] = React.useState("heart-outline");
   const [heart, setHeart] = React.useState("");
   const [centralHeart, setCentralHeart] = React.useState("escondido");
@@ -9,8 +17,8 @@ function ConteudoPost(props) {
     <div class="post">
       <div class="topo">
         <div class="usuario">
-          <img src={props.posterImg} />
-          {props.poster}
+          <img src={posterImg} />
+          {poster}
         </div>
         <div class="acoes">
           <ion-icon name="ellipsis-horizontal"></ion-icon>
@@ -21,13 +29,13 @@ function ConteudoPost(props) {
         <img
           onClick={() => {
             if (hearticon !== "heart") {
-              props.funçãoLike((props.likes * 1000 + 1) / 1000); // aumenta um like ao curtir a publicação
+              funçãoLike((likes * 1000 + 1) / 1000); // aumenta um like ao curtir a publicação
             }
             setHeartIcon("heart");
             setHeart("heart-liked");
             setCentralHeart("heart-central-post");
           }}
-          src={props.postImg}
+          src={postImg}
         />
         <ion-icon id={centralHeart} name="heart"></ion-icon>
       </div>
@@ -41,12 +49,12 @@ function ConteudoPost(props) {
                   setHeart("heart-disliked");
                   setHeartIcon("heart-outline");
                   setCentralHeart("escondido");
-                  props.funçãoLike((props.likes * 1000 - 1) / 1000); // aumenta um like ao curtir a publicação
+                  funçãoLike((likes * 1000 - 1) / 1000); // aumenta um like ao curtir a publicação
                 } else {
                   setHeartIcon("heart");
                   setHeart("heart-liked");
                   setCentralHeart("heart-central-post");
-                  props.funçãoLike((props.likes * 1000 + 1) / 1000); // aumenta um like ao curtir a publicação
+                  funçãoLike((likes * 1000 + 1) / 1000); // aumenta um like ao curtir a publicação
                 }
               }}
               id={heart}
@@ -61,10 +69,10 @@ function ConteudoPost(props) {
         </div>
 
         <div class="curtidas">
-          <img src={props.likerImg} />
+          <img src={likerImg} />
           <div class="texto">
-            Curtido por <strong>{props.liker}</strong> e{" "}
-            <strong>outras {props.likes} pessoas</strong>
+            Curtido por <strong>{liker}</strong> e{" "}
+            <strong>outras {likes} pessoas</strong>
           </div>
         </div>
       </div>

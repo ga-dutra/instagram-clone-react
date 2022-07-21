@@ -1,11 +1,11 @@
-function ConteudoSugestoes(props) {
+function ConteudoSugestoes({ img, username, doesfollow }) {
   return (
     <div class="sugestao">
       <div class="usuario">
-        <img src={props.img} />
+        <img src={img} />
         <div class="texto">
-          <div class="nome">{props.username}</div>
-          <div class="razao">{props.doesfollow}</div>
+          <div class="nome">{username}</div>
+          <div class="razao">{doesfollow}</div>
         </div>
       </div>
       <div class="seguir">Seguir</div>
